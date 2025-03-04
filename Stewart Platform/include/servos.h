@@ -8,13 +8,13 @@
 
 class Servos {
 public:
-  void Servos();
+  Servos();
   void setup();
-  void setServoAngles(uint16_t angles[servo_count]);
+  void setServoAngles(uint16_t angles[]);
   void setServoAngle(uint8_t channel, uint16_t angle);
 private:
   Adafruit_PWMServoDriver pca9685;
   int servo_count;  
-}
+};
 
 #endif

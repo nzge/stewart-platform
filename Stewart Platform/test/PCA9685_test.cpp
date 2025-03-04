@@ -7,9 +7,9 @@
 Adafruit_PWMServoDriver pca9685 = Adafruit_PWMServoDriver();
 
 int angleToPulse(int angle) {
-  pulse_min = (SERVO_MIN/PWM_PERIOD)*4096;
-  pulse_max = (SERVO_MAX/PWM_PERIOD)*4096;
-  return map(angle, 0, 180, pulse_min, pulse_max)
+  float pulse_min = (SERVO_MIN/PWM_PERIOD)*4096;
+  float pulse_max = (SERVO_MAX/PWM_PERIOD)*4096;
+  return map(angle, 0, 180, pulse_min, pulse_max);
 }
 
 void setup() {
@@ -33,7 +33,7 @@ void loop() {
     delay(200);
   }
 
-  delay(1000)
+  delay(1000);
 
   for (uint16_t angle = 180; angle >= 0; angle -= 10) {
     int pulse = map(SERVO_MIN, SERVO_MAX, 0, 180, angle);
