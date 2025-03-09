@@ -1,21 +1,24 @@
 #include <Arduino.h>
 #include <Wire.h>
 
-#include "fns.h"
+#include "Adafruit_PWMServoDriver.h"
 #include "constants.h"
-
+#include "fns.h"
 #include "servos.h"
-#include "pid.h"
 
 Servos StewartServos;  // Use Wire (I2C0) on Teensy 4.0
 uint16_t servoAngles[NUM_SERVOS];  // Array of servo angles, with size based on NUM_SERVOS
 
 void setup() {
   Serial.begin(9600);
-  // Start Wire1 (I2C on pins 17/SDA1 and 16/SCL1)
-  Wire.begin();
+
+  Wire.begin();   // Start Wire1 (I2C on pins 17/SDA1 and 16/SCL1)
   Wire.setClock(100000);  // Set I2C frequency to 100kHz
+
   StewartServos.init();  // Initialize the PCA9685
+  for (int i = 0; i < NUM_SERVOS; i++) { // Initialize all servo angles to 90 (middle position)
+    servoAngles[i] = 90;  // Default angle for all servos
+  }
 }
 
 void loop() {

@@ -5,11 +5,12 @@
 #include <Wire.h>
 #include "Adafruit_PWMServoDriver.h"
 #include "constants.h"
+#include "fns.h"
 
 class Servos {
 public:
   Servos();
-  void setup();
+  void init();
   void setServoAngles(uint16_t angles[]);
   void setServoAngle(uint8_t channel, uint16_t angle);
 private:
