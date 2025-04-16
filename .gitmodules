@@ -1,0 +1,3 @@
+[submodule "stewart-code/micro_ros_raspberrypi_pico_sdk"]
+	path = stewart-code/micro_ros_raspberrypi_pico_sdk
+	url = https://github.com/nzge/micro_ros_raspberrypi_pico_sdk
